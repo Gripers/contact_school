@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import styles from './page.module.css';
 
 import { Toaster, toast } from 'react-hot-toast';
@@ -7,8 +8,12 @@ import Image from 'next/image';
 import axios from 'axios';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+
+    setIsLoading(true);
 
     await axios
       .post(
@@ -27,7 +32,8 @@ export default function Home() {
         event.target.reset();
         toast.success('Success');
       })
-      .catch(() => toast.error('Fail'));
+      .catch(() => toast.error('Fail'))
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -40,11 +46,11 @@ export default function Home() {
             width={150}
             height={150}
           />
-          <form onSubmit={(event) => handleSubmit(event)}>
+          <form onSubmit={handleSubmit}>
             <input type='text' placeholder='Name, Surname' required />
             <input type='number' placeholder='Age' required />
             <input type='number' placeholder='Phone number' required />
-            <button type='submit'>Submit</button>
+            <button type='submit'>{isLoading ? '...' : 'Submit'}</button>
           </form>
         </div>
       </main>

@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background-image: url('/static/images/bg.png');
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/static/images/bg.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
