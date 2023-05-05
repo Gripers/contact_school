@@ -47,9 +47,9 @@ export default function Home() {
             height={150}
           />
           <form onSubmit={handleSubmit}>
-            <input type='text' placeholder='Name, Surname' required />
-            <input type='number' placeholder='Age' required />
-            <input type='number' placeholder='Phone number' required />
+            <input type='text' placeholder='Name / Ism' required />
+            <input type='number' placeholder='Age / Yosh' required />
+            <input type='number' placeholder='Phone number / Telefon raqam' required />
             <button type='submit'>{isLoading ? '...' : 'Submit'}</button>
           </form>
         </div>
